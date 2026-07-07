@@ -14,12 +14,27 @@ def ask_algebra():
     elif choice == 3:
         return (f"What is {number1} * {number2}?: ", number1 * number2)
 
+def ask_algebra102():
+    number1 = random.randint(20,100)
+    number2 = random.randint(20,100)
+    choice = random.randint(1, 4)
+    if choice == 1:
+        return (f"What is {number1} + {number2}?: ", number1 + number2)
+    elif choice == 2:
+        return (f"What is {number1} - {number2}?: ", number1 - number2)
+    elif choice == 3:
+        return (f"What is {number1} * {number2}?: ", number1 * number2)
+    elif choice == 4:
+        crct = number1 * number2
+        number3 = crct
+        return (f"What is {number3} / {number1}?: ", number2)
+
 def ask_financial_literacy():
     choice = random.randint(1, 3)
     if choice == 1:
-        total = random.randint(0, 500)
-        percent = random.randint(0,50)
-        correct = round(total * percent / 100, 2)
+        total = random.randint(1, 500)
+        percent = random.randint(1,50)
+        correct = int(total * percent / 100)
         return (f"If something costs ${total} and taxes are {percent}%, how much is the tax?: ",correct)
     elif choice == 2:
         save = random.randint(1, 1000)
@@ -29,7 +44,7 @@ def ask_financial_literacy():
     elif choice == 3:
         percent = random.randint(1, 50)
         num = random.randint(1, 300)
-        correct = round(num * percent / 100, 2)
+        correct = int(num * percent / 100)
         return (f"What is {percent}% of {num}?: ", correct)
 
 def ask_calculus():
@@ -49,6 +64,7 @@ def ask_calculus():
 
 question_functions = {
     'Algebra 101': ask_algebra,
+    'Algebra 102': ask_algebra102,
     'Financial Literacy 111': ask_financial_literacy,
     'Calculus': ask_calculus
 }
@@ -88,6 +104,7 @@ def run_assessment(current_class):
         print()
         print("Alright, I'll be waiting!")
         print()
+        return
     elif ready not in ['yes', 'no']:
         print()
         print("Please enter a valid response (yes or no).")
